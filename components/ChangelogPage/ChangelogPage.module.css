@@ -1,0 +1,9 @@
+.title {
+  font-family:
+    Greycliff CF,
+    var(--mantine-font-family);
+
+  @media (max-width: em(500px)) {
+    font-size: rem(26px);
+  }
+}

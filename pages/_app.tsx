@@ -1,0 +1,66 @@
+import '../fonts/GreycliffCF/styles.css';
+import '@mantine/core/styles.css';
+import '@mantinex/shiki/styles.css';
+import '@mantine/carousel/styles.css';
+import '@mantine/dropzone/styles.css';
+import '@mantine/spotlight/styles.css';
+import '@mantinex/mantine-header/styles.css';
+import '@mantinex/mantine-logo/styles.css';
+import Head from 'next/head';
+import { MantineProvider, DirectionProvider, localStorageColorSchemeManager } from '@mantine/core';
+import { ShikiProvider } from '@mantinex/shiki';
+import { HotKeysHandler } from '@/components/HotKeysHandler';
+import { Search } from '@/components/Search';
+import { GaScript } from '@/components/GaScript';
+
+async function loadShiki() {
+  const { getHighlighter } = await import('shikiji');
+  const shiki = await getHighlighter({
+    langs: ['tsx', 'scss', 'html', 'bash', 'json'],
+  });
+
+  return shiki;
+}
+
+export default function App({ Component, pageProps }: any) {
+  return (
+    <>
+      <Head>
+        <title>Haluo AI</title>
+        <meta itemProp="name" content="Haluo AI" key="item-title" />
+        <meta property="og:title" content="Haluo AI" key="og-title" />
+        <meta name="twitter:title" content="Haluo AI" key="twitter-title" />
+        <meta property="og:url" content="https://haluo.org/" key="og-url" />
+        <link rel="shortcut icon" href="/haluoicon.webp" />
+        <meta name="language" content="English" />
+        <meta name="robots" content="index, follow" />
+        <meta name="keywords" content="react,mantine,components" />
+        <meta
+          name="viewport"
+          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
+        />
+        <meta name="og:image:width" content="1280" />
+        <meta name="og:image:height" content="640" />
+        <meta name="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@mantinedev" />
+        <meta itemProp="description" content="Haluo, your personal AI assistant." />
+        <meta name="description" content="Haluo, your personal AI assistant." />
+      </Head>
+      <GaScript />
+
+      <DirectionProvider initialDirection="ltr" detectDirection={false}>
+        <MantineProvider
+          defaultColorScheme="auto"
+          colorSchemeManager={localStorageColorSchemeManager({ key: 'mantine-ui-color-scheme' })}
+        >
+          <ShikiProvider loadShiki={loadShiki}>
+            <HotKeysHandler />
+            <Component {...pageProps} />
+            <Search data={pageProps.allComponents} />
+          </ShikiProvider>
+        </MantineProvider>
+      </DirectionProvider>
+    </>
+  );
+}
