@@ -1,7 +1,5 @@
-import { CATEGORIES } from '../../data';
 import { Shell } from '../Shell';
 import { Banner } from './Banner/Banner';
-import { CategoriesList } from './CategoriesList/CategoriesList';
 
 interface HomePageProps {
   componentsCountByCategory: Record<string, number>;
@@ -16,9 +14,6 @@ export function HomePage({ componentsCountByCategory }: HomePageProps) {
   return (
     <Shell>
       <Banner componentsCount={allComponentsCount} />
-      <div id="main">
-        <CategoriesList groups={CATEGORIES} componentsCountByCategory={componentsCountByCategory} />
-      </div>
     </Shell>
   );
 }
