@@ -65,7 +65,7 @@ export function Banner({ componentsCount }: BannerProps) {
               className={cx(classes.control, classes.controlSecondary)}
               leftSection={<GithubIcon size="1rem" />}
               component="a"
-              href="https://github.com/mantinedev/ui.mantine.dev"
+              href="https://github.com/haluo-ai"
             >
               GitHub
             </Button>
@@ -73,7 +73,7 @@ export function Banner({ componentsCount }: BannerProps) {
               className={cx(classes.control, classes.controlMain)}
               rightSection={<IconExternalLink size="1rem" stroke={1.5} />}
               component="a"
-              href="https://mantine.dev/getting-started/"
+              href="https://www.haluo.ai"
             >
               Launch App
             </Button>
