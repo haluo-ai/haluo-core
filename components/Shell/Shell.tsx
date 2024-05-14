@@ -23,7 +23,7 @@ export function Shell({ children }: ShellProps) {
               src="/haluoicon.webp"
               alt="Haluo.org"
               data-dark
-              style={{width: '160px', height: '150px', marginTop: '30px' }} // Inline styles to control image size
+              style={{width: '50px', height: '50px'}} // Inline styles to control image size
             />
           </Link>
           <HeaderControls
