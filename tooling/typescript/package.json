@@ -1,0 +1,12 @@
+{
+  "name": "@hoarder/tsconfig",
+  "private": true,
+  "version": "0.1.0",
+  "files": [
+    "base.json",
+    "node.json"
+  ],
+  "devDependencies": {
+    "@tsconfig/node21": "^21.0.1"
+  }
+}

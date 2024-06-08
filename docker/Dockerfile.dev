@@ -1,0 +1,6 @@
+FROM node:21-alpine
+
+RUN apk add --no-cache libc6-compat make g++ py3-pip linux-headers
+ENV PUPPETEER_SKIP_DOWNLOAD true
+
+WORKDIR /app

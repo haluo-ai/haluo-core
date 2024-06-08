@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@hoarderapp/cli",
+  "version": "0.13.3",
+  "description": "Command Line Interface (CLI) for Hoarder",
+  "license": "GNU Affero General Public License version 3",
+  "keywords": [
+    "hoarder",
+    "cli"
+  ],
+  "exports": "./dist/index.mjs",
+  "bin": {
+    "hoarder": "dist/index.mjs"
+  },
+  "devDependencies": {
+    "@hoarder/eslint-config": "workspace:^0.2.0",
+    "@hoarder/prettier-config": "workspace:^0.1.0",
+    "@commander-js/extra-typings": "^12.0.1",
+    "@hoarder/shared": "workspace:^0.1.0",
+    "@hoarder/trpc": "workspace:^0.1.0",
+    "@hoarder/tsconfig": "workspace:^0.1.0",
+    "@trpc/client": "11.0.0-next-beta.308",
+    "@trpc/server": "11.0.0-next-beta.308",
+    "@tsconfig/node21": "^21.0.1",
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "superjson": "^2.2.1",
+    "table": "^6.8.2",
+    "tsx": "^4.7.1",
+    "vite": "^5.1.0"
+  },
+  "scripts": {
+    "build": "vite build",
+    "run": "tsx src/index.ts",
+    "lint": "eslint .",
+    "format": "prettier . --ignore-path ../../.prettierignore",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hoarder-app/hoarder.git",
+    "directory": "apps/cli"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@hoarder/eslint-config/base"
+    ]
+  },
+  "prettier": "@hoarder/prettier-config"
+}
